@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="content">
+    <h1> Update </h1>
+
+    <form action="/update/song/{{song.id}}" method="POST">
+        <input type="text" value="{{song.song_name}}" name="song_name" id="song_name">
+        <input type="text" value="{{song.album_name}}" name="album_name" id="album_name">
+        <input type="text" value="{{song.trivia}}" name="trivia" id="trivia">
+
+        <input type="submit" value="Update Song">
+    </form>
+</div>
+{% endblock %}

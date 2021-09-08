@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+
+{% block body %}
+<h1> Hello World</h1>
+<a href="/artists">Go to the Artists Page</a>
+
+<div class="content">
+
+    <h1> ong Master</h1>
+    {% if songs|length < 1 %}
+    <h4> Nothing in database</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th> Song</th>
+            <th> Album</th>
+            <th>Actions</th>
+        </tr>
+        {% for song in songs %}
+            <tr>
+                <td> {{song.song_name }}</td>
+                <td>{{ song.album_name}}</td>
+                <td>{{ song.trivia}}</td>
+
+                <td>
+                    <a href="/delete/song/{{song.id}}">Delete</a>
+                    <br>
+                    <a href="/update/song/{{song.id}}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <h4> Add a song</h4>
+    <form action="/" method="POST">
+        <input type="text" name="song_name" id="song_name">
+        <br>
+        <input type="text" name="album_name" id="album_name">
+        <br>
+        <input type="text" name="trivia" id="trivia">
+
+        <input type="submit" value="Add Song">
+    </form>
+</div>
+{% endblock %}

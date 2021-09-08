@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+
+{% block body %}
+<h1> Hello Artists</h1>
+<h1> Hello World</h1>
+
+
+<div class="content">
+
+    <h1> Artists Master</h1>
+    {% if artists|length < 1 %}
+    <h4> Nothing artistic in database</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th> Group Name</th>
+            <th> Individuals in Group</th>
+            <th>Year Founded</th>
+        </tr>
+        {% for artist in artists %}
+            <tr>
+                <td> {{artist.artist_name }}</td>
+                <td>{{ artist.individuals_in_group}}</td>
+                <td>{{ artist.year_founded}}</td>
+
+                <td>
+                    <a href="/delete/artist/{{artist.id}}">Delete</a>
+                    <br>
+                    <a href="/update/artist/{{artist.id}}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <h4> Add a artist</h4>
+    <form action="/" method="POST">
+        <input type="text" name="artist_name" id="artist_name">
+        <br>
+        <input type="text" name="individuals_in_group id="individuals_in_group>
+        <br>
+        <input type="text" name="year_founded" id="year_founded">
+
+        <input type="submit" value="Add artist">
+    </form>
+</div>
+{% endblock %}
