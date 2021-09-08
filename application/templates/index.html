@@ -19,13 +19,15 @@
         <tr>
             <th> Song</th>
             <th> Album</th>
-            <th>Actions</th>
+            <th>Trivia</th>
+            <th>Artist</th>
         </tr>
-        {% for song in songs %}
+        {% for song,artist in songs %}
             <tr>
                 <td> {{song.song_name }}</td>
                 <td>{{ song.album_name}}</td>
                 <td>{{ song.trivia}}</td>
+                <td>{{artist.artist_name}}</td>
 
                 <td>
                     <a href="/delete/song/{{song.id}}">Delete</a>
@@ -43,6 +45,9 @@
         <input type="text" name="album_name" id="album_name">
         <br>
         <input type="text" name="trivia" id="trivia">
+        <br>
+        <input type="text" name="artist_name" id="artist_name">
+
 
         <input type="submit" value="Add Song">
     </form>

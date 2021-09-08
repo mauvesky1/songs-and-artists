@@ -15,8 +15,9 @@ def index():
             song_name = request.form['song_name']
             album_name = request.form['album_name']
             trivia = request.form['trivia']
+            artists_id = Artists.query.filter_by(artist_name=request.form['artist_name']).first().id
 
-            new_song = Songs(song_name=song_name, album_name=album_name, trivia=trivia)
+            new_song = Songs(song_name=song_name, album_name=album_name, trivia=trivia, artists_id=artists_id)
             try:
                 db.session.add(new_song)
                 db.session.commit()
@@ -25,7 +26,12 @@ def index():
                 return "There was an error adding the song."
         else:
             songs = Songs.query.all()
-            return render_template("index.html", songs=songs)
+            results =db.session.query(Songs, Artists).join(Artists).all()
+            for song, artist in results:
+
+                print( song, artist)
+
+            return render_template("index.html", songs=results)
 
 @app.route('/delete/song/<int:id>')
 def delete(id):
