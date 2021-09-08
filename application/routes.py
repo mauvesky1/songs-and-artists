@@ -74,3 +74,30 @@ def artists():
         else:
             artists = Artists.query.all()
             return render_template("artists.html", artists=artists)
+
+@app.route('/delete/artist/<int:id>')
+def deleteArtist(id):
+    artist_to_delete = Artists.query.get_or_404(id)
+
+    try:
+        db.session.delete(artist_to_delete)
+        db.session.commit()
+        return redirect("/artists")
+    except:
+        return "There was a problem deleting that task"
+
+@app.route('/update/artist/<int:id>', methods=['GET', 'POST'])
+def updateArtist(id):
+    artist_to_update = Artists.query.get_or_404(id)
+    if request.method == 'POST':
+        artist_to_update.artist_name = request.form['artist_name']
+        artist_to_update.individuals_in_group = request.form['individuals_in_group']
+        artist_to_update.year_founded = request.form['year_founded']
+        try:
+       
+            db.session.commit()
+            return redirect("/artists")
+        except:
+            return "There was a problem deleting that task"
+    else:
+        return render_template('updateartist.html', artist=artist_to_update)

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="content">
+    <h1> Update </h1>
+
+    <form action="/update/artist/{{artist.id}}" method="POST">
+        <input type="text" value="{{artist.artist_name}}" name="artist_name" id="artist_name">
+        <input type="text" value="{{artist.individuals_in_group}}" name="individuals_in_group" id="individuals_in_group">
+        <input type="number" value="{{artist.year_founded}}" name="year_founded" id="year_founded">
+
+        <input type="submit" value="Update artist">
+    </form>
+</div>
+{% endblock %}
