@@ -7,7 +7,6 @@
 
 {% block body %}
 <h1> Hello Artists</h1>
-<h1> Hello World</h1>
 
 
 <div class="content">
@@ -38,12 +37,12 @@
     </table>
     {% endif %}
     <h4> Add a artist</h4>
-    <form action="/" method="POST">
+    <form action="/artists" method="POST">
         <input type="text" name="artist_name" id="artist_name">
         <br>
-        <input type="text" name="individuals_in_group id="individuals_in_group>
+        <input type="text" name="individuals_in_group" id="individuals_in_group">
         <br>
-        <input type="text" name="year_founded" id="year_founded">
+        <input type="number" name="year_founded" id="year_founded">
 
         <input type="submit" value="Add artist">
     </form>

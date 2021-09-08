@@ -11,6 +11,7 @@ from application.models import Artists, Songs
 @app.route("/index", methods=["Post", "GET"])
 def index():
         if request.method =="POST":
+            
             song_name = request.form['song_name']
             album_name = request.form['album_name']
             trivia = request.form['trivia']
@@ -63,11 +64,11 @@ def artists():
             individuals_in_group = request.form['individuals_in_group']
             year_founded = request.form['year_founded']
 
-            new_artist = Artist(artist_name=artist_name, individuals_in_group=individuals_in_group, year_founded=year_founded)
+            new_artist = Artists(artist_name=artist_name, individuals_in_group=individuals_in_group, year_founded=year_founded)
             try:
                 db.session.add(new_artist)
                 db.session.commit()
-                return redirect("/")
+                return redirect("/artists")
             except:
                 return "There was an error adding the song."
         else:
