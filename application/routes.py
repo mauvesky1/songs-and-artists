@@ -27,9 +27,7 @@ def index():
         else:
             songs = Songs.query.all()
             results =db.session.query(Songs, Artists).join(Artists).all()
-            for song, artist in results:
 
-                print( song, artist)
 
             return render_template("index.html", songs=results)
 
@@ -53,8 +51,6 @@ def update(id):
         song_to_update.album_name = request.form['album_name']
         song_to_update.trivia = request.form['trivia']
 
-
-        
         try: 
             db.session.commit()
             return redirect("/")
