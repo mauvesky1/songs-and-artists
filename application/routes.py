@@ -50,8 +50,6 @@ def update(id):
         song_to_update.song_name = request.form['song_name']
         song_to_update.album_name = request.form['album_name']
         song_to_update.trivia = request.form['trivia']
-
-
         
         try: 
             db.session.commit()
@@ -79,8 +77,9 @@ def artists():
             artists = Artists.query.all()
             return render_template("artists.html", artists=artists)
 
-@app.route('/delete/artist/<int:id>')
-def deleteArtist(id):
+
+@app.route('/delete/artist/<int:id>', defaults={"id":1}, methods=['DELETE'])
+def deleteartist(id):
     artist_to_delete = Artists.query.get_or_404(id)
 
     try:
@@ -90,8 +89,8 @@ def deleteArtist(id):
     except:
         return "There was a problem deleting that task"
 
+
 @app.route('/update/artist/<int:id>', defaults={ "id":1}, methods=['GET', 'POST'])
-@app.route('/update/artist/<int:id>', methods=['GET', 'POST'])
 def updateartist(id):
     artist_to_update = Artists.query.get_or_404(id)
     if request.method == 'POST':

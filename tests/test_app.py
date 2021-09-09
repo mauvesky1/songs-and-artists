@@ -53,7 +53,11 @@ class TestViews(TestBase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'of therein', response.data)
 
-
+    def test_artist_delete(self):
+        response = self.client.delete(url_for("deleteartist"),
+        data = dict(id=1),
+        follow_redirects=True  )
+        self.assertEqual(response.status_code, 200)
 
     def test_artist_update(self):
         response = self.client.post(url_for("updateartist"),
