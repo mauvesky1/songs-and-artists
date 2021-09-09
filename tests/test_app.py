@@ -20,11 +20,14 @@ class TestBase(TestCase):
         # Create table schema
         db.create_all()
         # Create test data
-        #Songs(song_name="Las", album_name="Housses", trivia="trivia", artists_id=1)
+
         test_artist = Artists(artist_name="Houses", individuals_in_group="individuals_in_group", year_founded=1951)
+        test_song = Songs(song_name="Rain", album_name="Fall", trivia="Recorded in Argyle", artists_id=1)
 
         # save sample data to database
         db.session.add(test_artist)
+        db.session.add(test_song)
+
         db.session.commit()
 
     def tearDown(self):
@@ -32,14 +35,41 @@ class TestBase(TestCase):
              db.drop_all()
 
 class TestViews(TestBase):
-     def test_artist_get(self):
+
+    def test_index_get(self):
+         response = self.client.get(url_for("index"))
+         self.assertEqual(response.status_code, 200)
+         self.assertIn(b'Rain', response.data)     
+
+    def test_artist_get(self):
          response = self.client.get(url_for("artists"))
          self.assertEqual(response.status_code, 200)
          self.assertIn(b'Houses', response.data)
+    
+    def test_artist_post(self):
+        response = self.client.post(url_for("artists"),
+        data = dict(artist_name="of therein", individuals_in_group="individuals_in_group", year_founded=1955),
+        follow_redirects=True  )
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'of therein', response.data)
+
+
+
+    def test_artist_update(self):
+        response = self.client.post(url_for("updateartist"),
+        data = dict(artist_name="therein", individuals_in_group="individuals_in_group", year_founded=1950),
+        follow_redirects=True  )
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"1950", response.data)
+    
              
+    # def test_song_post(self):
+    #     response = self.client.post(url_for("index"), data=dict(song_name="Sun", album_name="TheLi", trivia="Recorded in Bangui", artists_id=1),  follow_redirects=True   )
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertIn(b'Sun', response.data)
 
 # class FlaskTesting(unittest.TestCase):
-#     #testing routes
+    #testing routes
 #     def test_index_route(self):
 #         tester = app.test_client(self)
 #         response = tester.get("/index", content_type="html/text")
@@ -56,5 +86,5 @@ class TestViews(TestBase):
 #         self.assertEqual(response.status_code, 200)
       
 
-# if __name__ == "__main__":
+# # if __name__ == "__main__":
 #     unittest.main()
