@@ -9,7 +9,7 @@ class Artists(db.Model):
     #songs = db.relationship("Songs", backref="author", lazy=True)
     song = db.relationship("Songs")
 
-    def __repr__(self):
+    def __repr__(self): #pragma: no cover
         return f"Artist('{self.artist_name}'', '{self.year_founded}')"
 
 class Songs(db.Model):
@@ -19,5 +19,5 @@ class Songs(db.Model):
     trivia = db.Column(db.String(200))
     #artists_id = db.Column(db.Integer, db.ForeignKey("Artists.id"), nullable=False)
     artists_id = db.Column(db.Integer, db.ForeignKey(Artists.id))
-    def __repr__(self):
+    def __repr__(self): #pragma: no cover
         return f"Song('{self.song_name}')"
