@@ -80,6 +80,7 @@ def artists():
 
 @app.route('/delete/artist/<int:id>', defaults={"id":1}, methods=['DELETE'])
 def deleteartist(id):
+    #Refactor to merge delete and update routes
     artist_to_delete = Artists.query.get_or_404(id)
 
     try:
