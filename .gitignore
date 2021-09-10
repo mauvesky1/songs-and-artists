@@ -133,3 +133,4 @@ Data.db
 test.db
 **__pycache__**
 *notes*
+*.db*
