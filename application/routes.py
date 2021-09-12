@@ -44,7 +44,7 @@ def artists():
 
 
 @app.route('/delete/<int:table>/<int:id>', methods=["DELETE", "GET"])
-def deleteartist(table, id):
+def deleteRow(table, id):
 
     if table == 1:
         row_to_delete = Artists.query.get_or_404(id)
@@ -62,7 +62,7 @@ def deleteartist(table, id):
 
 
 @app.route('/update/<int:table>/<int:id>', methods=['GET', 'POST'])
-def updateartist(table, id):
+def updateRow(table, id):
     print( table, "HEllo")
     if table == 1:
         artist_to_update = Artists.query.get_or_404(id)

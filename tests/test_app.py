@@ -49,27 +49,27 @@ class TestViews(TestBase):
         self.assertIn(b'of therein', response.data)
 
     def test_artist_delete(self):
-        response = self.client.get(url_for("deleteartist", id=1, table=1),
+        response = self.client.get(url_for("deleteRow", id=1, table=1),
         follow_redirects=True  )
         self.assertEqual(response.status_code, 200)
         self.assertNotIn(b"Houses", response.data)
     
     def test_song_delete(self):
-        response = self.client.get(url_for("deleteartist", id=1, table=2),
+        response = self.client.get(url_for("deleteRow", id=1, table=2),
         follow_redirects=True  )
         print("this is the printing right here", response.data)
         self.assertEqual(response.status_code, 200)
         self.assertNotIn(b"Rain", response.data)
 
     def test_artist_update(self):
-        response = self.client.post(url_for("updateartist", id=1,table=1),
+        response = self.client.post(url_for("updateRow", id=1,table=1),
         data = {"artist_name":"therein", "individuals_in_group":"individuals_in_group", "year_founded":1950},
         follow_redirects=True  )
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"1950", response.data)
     
     def test_song_update(self):
-        response = self.client.post(url_for("updateartist", id=1, table=2),
+        response = self.client.post(url_for("updateRow", id=1, table=2),
         data = {"artists_id":1, "song_name":"Yet name", "album_name":"Yet", "trivia":"trivia"}, follow_redirects=True)
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"Yet name", response.data)
