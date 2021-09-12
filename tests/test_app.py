@@ -66,11 +66,12 @@ class TestViews(TestBase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"1950", response.data)
     
-    # def test_song_update(self):
-    #     response = self.client.post(url_for("updateartist", id=1, table=2)),
-    #     #data = {song_name:"Last Stand", album_name:"Four", trivia:"More trivia needed", follow_redirects:True}
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertIn(b"Four", response.data)
+    def test_song_update(self):
+        response = self.client.post(url_for("updateartist", id=1, table=2),
+        #data = {song_name:"Last Stand", album_name:"Four", trivia:"More trivia needed", follow_redirects:True}
+        data = dict(artists_id=1, song_name="Yet name", album_name="Yet um", trivia="trivia"), follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"Yet name", response.data)
     
              
     # def test_song_post(self):
