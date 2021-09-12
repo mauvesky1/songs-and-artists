@@ -46,7 +46,8 @@ def artists():
 @app.route('/delete/<int:table>/<int:id>', methods=["DELETE", "GET"])
 def deleteartist(table, id):
 
-    if table == 1: row_to_delete = Artists.query.get_or_404(id)
+    if table == 1:
+        row_to_delete = Artists.query.get_or_404(id)
 
     elif table == 2: 
         row_to_delete = Songs.query.get_or_404(id)
@@ -54,13 +55,15 @@ def deleteartist(table, id):
     db.session.delete(row_to_delete)
     db.session.commit()
 
-    if table == 1:   return redirect("/artists")
-    elif table == 2: return redirect("/")
+    if table == 1:   
+        return redirect("/artists")
+    elif table == 2: 
+        return redirect("/")
 
 
 @app.route('/update/<int:table>/<int:id>', methods=['GET', 'POST'])
 def updateartist(table, id):
-    print( table, "HEllo ello")
+    print( table, "HEllo")
     if table == 1:
         artist_to_update = Artists.query.get_or_404(id)
     elif table == 2:
@@ -75,8 +78,8 @@ def updateartist(table, id):
             db.session.commit()
             return redirect("/artists")
 
-    elif table == 1: return render_template('updateartist.html', artist=artist_to_update)
     #Song Update logic
+    elif table == 1: return render_template('updateartist.html', artist=artist_to_update)
     if request.method == 'POST' and table == 2:
         song_to_update.song_name = request.form['song_name']
         song_to_update.album_name = request.form['album_name']
