@@ -54,17 +54,23 @@ class TestViews(TestBase):
         self.assertIn(b'of therein', response.data)
 
     def test_artist_delete(self):
-        response = self.client.delete(url_for("deleteartist"),
-        data = dict(id=1),
+        response = self.client.get(url_for("deleteartist", id=1, table=1)
+        ,
         follow_redirects=True  )
         self.assertEqual(response.status_code, 200)
 
     def test_artist_update(self):
-        response = self.client.post(url_for("updateartist"),
+        response = self.client.post(url_for("updateartist", id=1,table=1),
         data = dict(artist_name="therein", individuals_in_group="individuals_in_group", year_founded=1950),
         follow_redirects=True  )
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"1950", response.data)
+    
+    # def test_song_update(self):
+    #     response = self.client.post(url_for("updateartist", id=1, table=2)),
+    #     #data = {song_name:"Last Stand", album_name:"Four", trivia:"More trivia needed", follow_redirects:True}
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertIn(b"Four", response.data)
     
              
     # def test_song_post(self):

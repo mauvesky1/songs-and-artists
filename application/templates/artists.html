@@ -24,13 +24,14 @@
         {% for artist in artists %}
             <tr>
                 <td> {{artist.artist_name }}</td>
+              
                 <td>{{ artist.individuals_in_group}}</td>
                 <td>{{ artist.year_founded}}</td>
 
                 <td>
-                    <a href="/delete/artist/{{artist.id}}">Delete</a>
+                    <a href="/delete/1/{{artist.id}}">Delete</a>
                     <br>
-                    <a href="/update/artist/{{artist.id}}">Update</a>
+                    <a href="/update/1/{{artist.id}}">Update</a>
                 </td>
             </tr>
         {% endfor %}
@@ -40,6 +41,7 @@
     <form action="/artists" method="POST">
         <input type="text" name="artist_name" id="artist_name">
         <br>
+        <label>Group Members:</label>
         <input type="text" name="individuals_in_group" id="individuals_in_group">
         <br>
         <input type="number" name="year_founded" id="year_founded">
