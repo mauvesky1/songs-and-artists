@@ -1,6 +1,3 @@
-import os
-from datetime import datetime
-
 from flask import render_template, url_for, flash, redirect, request
 from application import app, db
 from application.models import Artists, Songs
