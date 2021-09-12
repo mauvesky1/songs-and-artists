@@ -3,8 +3,8 @@ from application import app, db
 from application.models import Artists, Songs
 
 
-@app.route("/", methods=["Post", "GET"])
-@app.route("/index", methods=["Post", "GET"])
+@app.route("/", methods=["POST", "GET"])
+@app.route("/index", methods=["POST", "GET"])
 def index():
         if request.method =="POST":
             
@@ -22,7 +22,7 @@ def index():
 
             return render_template("index.html", songs=results)
 
-@app.route("/artists", methods=["Post", "GET"])
+@app.route("/artists", methods=["POST", "GET"])
 def artists():
         if request.method =="POST":
             artist_name = request.form['artist_name']

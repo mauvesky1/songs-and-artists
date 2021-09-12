@@ -18,13 +18,15 @@ The brief for this project was to design an app with CRUD functionality, storing
 
 This app allows users to submit artists and songs, and store trivia about the individual songs. Users can then read the information that has been stored, update it and delete it.
 
+Trello
+
 ## Risk Assessment
 
 Before the project began a risk assessment was carried out.
 
-![Risk](https://github.com/mauvesky1/songs-and-artists/blob/dev/images/ERD.png)
+![Risk](https://github.com/mauvesky1/songs-and-artists/blob/dev/Images/Improved%20ERD.png)
 
-One of these risks did occur, my internet went down for 6 hours on the first day of the project, Tuesday. I implemented the risk mitigation strategy in the risk assessment, and whilst this did work it could be improved. Specifically, the QA websites would not allow me to log in, and this would have been highlighted if the risk mitigation strategy had been tested.
+One of these risks did occur, my internet went down for 6 hours on the first day of the project, Tuesday. I implemented the risk mitigation strategy in the risk assessment, and whilst this did work it could be improved. Specifically, the QA website would not allow me to log in, and this would have been highlighted if the risk mitigation strategy had been tested.
 
 If I were to do the project again, testing the risk mitigation strategies is something I would implement.
 
