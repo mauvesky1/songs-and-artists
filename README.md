@@ -22,7 +22,7 @@ This app allows users to submit artists and songs, and store trivia about the in
 
 Before the project began a risk assessment was carried out.
 
-One of these risks did occur, my internet went down for 6 hours on the first day of the project, Tuesday. I implemented the risk mitigation strategy in the risk assessment, and whilst this did work it could be improved. Specifically, the QA websites would not allow me to log in, and this wouild have been highlighted if the risk mitigation strategy had been tested.
+One of these risks did occur, my internet went down for 6 hours on the first day of the project, Tuesday. I implemented the risk mitigation strategy in the risk assessment, and whilst this did work it could be improved. Specifically, the QA websites would not allow me to log in, and this would have been highlighted if the risk mitigation strategy had been tested.
 
 * The App
 
@@ -37,12 +37,13 @@ One of these risks did occur, my internet went down for 6 hours on the first day
         -Jenkins
             Jenkins is 
         -Pytest
-            Testing was acheived with 
+            Testing was achieved with 
+            Qhat is being tested and why tests are run.
 * Testing
     When the project is pushed to Github, a hook initiates a testing sequence that generates a report. An example can be seen below
 
 * Known Issues
-    The group members are stored in a manner which is not atomic. If I were to improve on this app, I would have a separate table for group members. This would make it possible to search by member as well, as one person could be in multiple groups over time.
+    The group members are stored in a manner which is not fully atomic. If I were to improve on this app, I would have a separate table for group members. This would make it possible to search by member as well, as one person could be in multiple groups over time.
 
 * Future Work
     If I were to do the project again, testing the risk mitigation strategies is something I would implement.
