@@ -71,4 +71,4 @@ A song cannot be added unless the artist is already in the database. If this is 
 
 ## Future Work
 
-If I were to improve on this app, I would have a separate table for group members. This would make it possible to search by individual member as well, as one person could be in multiple groups over time. The trivia field could similarly be put into its own table, and the song length field could be implemented.
+If I were to improve on this app, I would have a separate table for group members. This would make it possible to search by individual member, as one person could be in multiple groups over time. The trivia field could similarly be put into its own table, and the song length field could be implemented. The final user stories could also be added into the project, such as the option to play songs.
