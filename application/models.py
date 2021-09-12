@@ -17,7 +17,6 @@ class Songs(db.Model):
     song_name = db.Column(db.String(200), nullable=False)
     album_name = db.Column(db.String(200), nullable=False)
     trivia = db.Column(db.String(200))
-    
     artists_id = db.Column(db.Integer, db.ForeignKey(Artists.id))
     def __repr__(self):
         return f"Song('{self.song_name}')"
