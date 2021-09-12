@@ -22,7 +22,7 @@ In the interests of time, the song length field was not implemented
 
 This app allows users to submit artists and songs, and store trivia about the individual songs. Users can then read the information that has been stored, update it and delete it.
 
-Version Control was achieved with Git and Github. Project Tracking was achieved with Trello, with user stories being assigned story points. The Trello board at the beginnning of the project:
+Version Control was achieved with Git and Github. Project Tracking was achieved with Trello, with user stories being assigned story points. The Trello board at the beginning of the project:
 
 ## Risk Assessment
 
@@ -58,7 +58,7 @@ If I were to do the project again, testing the risk mitigation strategies is som
  When the project is pushed to Github, a hook initiates a testing sequence that generates a report. An example can be seen below.
 
 
- [Tests](https://github.com/mauvesky1/songs-and-artists/blob/dev/Images/Tests.png)
+![Tests](https://github.com/mauvesky1/songs-and-artists/blob/dev/Images/Tests.png)
 
 ## Known Issues
 The group members are stored in a manner which is not fully atomic. 
