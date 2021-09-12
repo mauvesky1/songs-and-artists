@@ -41,7 +41,7 @@ If I were to do the project again, testing the risk mitigation strategies is som
  The technologies used in this app consist of the following:
 
   ### Flask
-   Flask is a mini web framework, it manges HTTP requests and renders templates. Flask depends upon Jinja.
+   Flask is a mini web framework, it manages HTTP requests and renders templates. Flask depends upon Jinja.
 
   ### Jinja2
    Jinja is a templating engine allowing python-syntax to be written inside html pages. It also allows a single html page to act as a base and for other files to build upon this.
@@ -53,7 +53,7 @@ If I were to do the project again, testing the risk mitigation strategies is som
    Jenkins is an automation server which enables the building, testing and deploying of software. As with the project itself, this was run on an Amazon EC2 instance. An EC2 is a cloud based virtual machine.
 
   ### Pytest
-   Testing was achieved with Pytest, a Python testing module. It is testing integration with the database, as well as the application code. 
+   Testing was achieved with Pytest, a Python testing module. 
    These tests are run to demonstrate that the code achieves the goals it has set out to, and that it continues to do so as the code base is worked on. This way, any additions to the code base that break functionality can be caught by running the test suite.
 
 ## Testing
