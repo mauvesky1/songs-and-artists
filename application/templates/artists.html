@@ -39,11 +39,13 @@
     {% endif %}
     <h4> Add a artist</h4>
     <form action="/artists" method="POST">
+        <p>Artist Name:</p>
         <input type="text" name="artist_name" id="artist_name">
         <br>
-        <label>Group Members:</label>
+        <p>Group Members:</p>
         <input type="text" name="individuals_in_group" id="individuals_in_group">
         <br>
+        <p>Year Founded:</p>
         <input type="number" name="year_founded" id="year_founded">
 
         <input type="submit" value="Add artist">
